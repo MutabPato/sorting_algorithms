@@ -21,9 +21,6 @@ void selection_sort(int *array, size_t size)
 				min_idx = j;
 		}
 
-		/* Swap the minimum element only if it is different from the
-		 * current element
-		 */
 		if (min_idx != i)
 		{
 			array[i] = array[i] + array[min_idx];
