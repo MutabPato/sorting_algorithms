@@ -10,7 +10,6 @@
 void selection_sort(int *array, size_t size)
 {
 	size_t i, j, min_idx;
-	int temp;
 
 	for (i = 0; i < size - 1; i++)
 	{
@@ -21,11 +20,15 @@ void selection_sort(int *array, size_t size)
 			if (array[j] < array[min_idx])
 				min_idx = j;
 		}
+
+		/* Swap the minimum element only if it is different from the
+		 * current element
+		 */
 		if (min_idx != i)
 		{
-			temp = array[i];
-			array[i] = array[min_idx];
-			array[min_idx] = temp;
+			array[i] = array[i] + array[min_idx];
+			array[min_idx] = array[i] - array[min_idx];
+			array[i] = array[i] - array[min_idx];
 
 			print_array(array, size);
 		}
